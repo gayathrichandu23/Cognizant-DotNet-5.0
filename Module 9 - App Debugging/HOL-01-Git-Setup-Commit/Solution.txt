@@ -1,0 +1,63 @@
+HOL 01 - Git Setup and First Commit
+
+Aim:
+To configure Git, set Notepad++ as the default editor, create a Git repository, add a file, commit it and push it to the remote repository.
+
+Steps done:
+
+1. Checked Git installation.
+
+Command:
+git --version
+
+Observation:
+Git version was displayed, so Git was installed correctly.
+
+2. Configured username and email.
+
+Commands:
+git config --global user.name "Student"
+git config --global user.email "student@example.com"
+git config --global --list
+
+Observation:
+The username and email were visible in the Git global configuration.
+
+3. Configured Notepad++ as Git editor.
+
+Commands:
+alias npp='notepad++'
+git config --global core.editor "notepad++ -multiInst -notabbar -nosession -noPlugin"
+git config --global -e
+
+Observation:
+The global Git configuration opened in the editor.
+
+4. Created local repository and added welcome.txt.
+
+Commands:
+mkdir GitDemo
+cd GitDemo
+git init
+echo "Welcome to Git hands-on lab." > welcome.txt
+git status
+git add welcome.txt
+git commit -m "Add welcome file"
+
+File created:
+welcome.txt
+
+Content:
+Welcome to Git hands-on lab.
+
+Observation:
+Before staging, welcome.txt was shown as an untracked file. After git add and git commit, the working tree became clean.
+
+5. Pulled and pushed with remote repository.
+
+Commands:
+git pull origin master
+git push origin master
+
+Result:
+Git setup was completed and the first file was added and committed successfully.

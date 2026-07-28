@@ -1,0 +1,45 @@
+HOL 02 - Git Ignore
+
+Aim:
+To use .gitignore for ignoring unwanted log files and log folders.
+
+Steps done:
+
+1. Created one log file and one log folder.
+
+Commands:
+echo "Temporary log file" > application.log
+mkdir log
+echo "Debug log" > log/debug.log
+
+Files created:
+application.log
+log/debug.log
+
+2. Updated .gitignore.
+
+Command:
+notepad .gitignore
+
+.gitignore content:
+*.log
+log/
+*.orig
+*.bak
+
+3. Verified ignored files.
+
+Command:
+git status --ignored
+
+Observation:
+application.log and the log folder were shown as ignored files. They were not added to staging.
+
+4. Committed .gitignore.
+
+Commands:
+git add .gitignore
+git commit -m "Add git ignore rules"
+
+Result:
+.gitignore was created successfully and unwanted log files were ignored.

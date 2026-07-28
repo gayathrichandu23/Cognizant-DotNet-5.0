@@ -1,0 +1,98 @@
+HOL 04 - Merge Conflict Resolution
+
+Aim:
+To create a merge conflict by changing the same file in master and another branch, then resolve the conflict.
+
+Steps done:
+
+1. Checked master branch status.
+
+Command:
+git status
+
+Observation:
+The working tree was clean before starting the conflict exercise.
+
+2. Created GitWork branch and added hello.xml.
+
+Commands:
+git checkout -b GitWork
+notepad hello.xml
+git add hello.xml
+git commit -m "Add hello xml in GitWork"
+
+Content added in GitWork:
+<message>
+  <text>Hello from GitWork branch</text>
+  <owner>branch</owner>
+</message>
+
+3. Switched to master and added hello.xml with different content.
+
+Commands:
+git checkout master
+notepad hello.xml
+git add hello.xml
+git commit -m "Add hello xml in master"
+
+Content added in master:
+<message>
+  <text>Hello from master branch</text>
+  <owner>master</owner>
+</message>
+
+4. Compared the branches.
+
+Commands:
+git log --oneline --graph --decorate --all
+git diff master..GitWork
+git difftool master..GitWork
+
+Observation:
+hello.xml had different content in master and GitWork.
+
+5. Merged GitWork into master.
+
+Command:
+git merge GitWork
+
+Conflict observed in hello.xml:
+<<<<<<< HEAD
+  <text>Hello from master branch</text>
+  <owner>master</owner>
+=======
+  <text>Hello from GitWork branch</text>
+  <owner>branch</owner>
+>>>>>>> GitWork
+
+6. Resolved the conflict manually.
+
+Final hello.xml:
+<message>
+  <text>Hello from master branch and GitWork branch</text>
+  <owner>resolved</owner>
+</message>
+
+Commands:
+git add hello.xml
+git commit -m "Resolve hello xml merge conflict"
+
+7. Added backup file rules to .gitignore.
+
+Commands:
+notepad .gitignore
+git add .gitignore
+git commit -m "Ignore merge backup files"
+
+Rules added:
+*.orig
+*.bak
+
+8. Deleted merged branch and checked log.
+
+Commands:
+git branch -d GitWork
+git log --oneline --graph --decorate
+
+Result:
+The merge conflict was resolved and GitWork was deleted after merging.

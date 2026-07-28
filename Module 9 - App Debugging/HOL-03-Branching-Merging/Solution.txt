@@ -1,0 +1,56 @@
+HOL 03 - Branching and Merging
+
+Aim:
+To create a new branch, add changes in that branch, compare it with master and merge it back.
+
+Steps done:
+
+1. Created and switched to a new branch.
+
+Commands:
+git checkout -b GitNewBranch
+git branch -a
+
+Observation:
+GitNewBranch was listed as the current branch.
+
+2. Added files in the branch.
+
+Commands:
+echo "Changes added from GitNewBranch." > branch-notes.txt
+echo "Branch merge practice file." > branch-summary.txt
+git status
+git add branch-notes.txt branch-summary.txt
+git commit -m "Add branch files"
+
+Files created:
+branch-notes.txt
+branch-summary.txt
+
+Content:
+Changes added from GitNewBranch.
+Branch merge practice file.
+
+3. Switched back to master and compared branches.
+
+Commands:
+git checkout master
+git diff master..GitNewBranch
+git difftool master..GitNewBranch
+
+Observation:
+The difference showed branch-notes.txt and branch-summary.txt as new files from GitNewBranch. Visual difference was also checked with difftool.
+
+4. Merged the branch and deleted it.
+
+Commands:
+git merge GitNewBranch
+git log --oneline --graph --decorate
+git branch -d GitNewBranch
+git status
+
+Observation:
+The branch changes were merged into master. After merge, GitNewBranch was deleted.
+
+Result:
+Branch creation, comparison, merge and branch cleanup were completed.

@@ -1,0 +1,55 @@
+HOL 05 - Cleanup and Push Changes
+
+Aim:
+To check the final repository status, pull from remote, push pending changes and verify the final branch list.
+
+Steps done:
+
+1. Checked repository status.
+
+Command:
+git status
+
+Observation:
+The master branch was clean after completing the previous hands-on tasks.
+
+2. Checked available branches.
+
+Command:
+git branch -a
+
+Observation:
+Only master was kept after deleting the completed working branches.
+
+3. Pulled latest changes from remote.
+
+Command:
+git pull origin master
+
+Observation:
+The pull command was run before final push.
+
+4. Pushed final changes.
+
+Command:
+git push origin master
+
+Observation:
+The completed commits were pushed to the remote repository.
+
+5. Checked final log.
+
+Command:
+git log --oneline --graph --decorate
+
+Expected commits:
+Resolve hello xml merge conflict
+Ignore merge backup files
+Add hello xml in master
+Add hello xml in GitWork
+Add branch files
+Add git ignore rules
+Add welcome file
+
+Result:
+Cleanup was completed, branch list was verified and final changes were pushed.
